@@ -1,3 +1,29 @@
+// audio
+const audio = document.getElementById("themeAudio");
+const audioBtn = document.getElementById("playPauseBtn");
+
+let started = false;
+
+// user interaction required once
+document.addEventListener("click", () => {
+    if (!started) {
+        audio.play().then(() => {
+            started = true;
+            audioBtn.innerText = "⏸ Pause";
+        }).catch(() => {});
+    }
+});
+
+// play pause button
+audioBtn.addEventListener("click", () => {
+    if (audio.paused) {
+        audio.play();
+        audioBtn.innerText = "⏸ Pause";
+    } else {
+        audio.pause();
+        audioBtn.innerText = "▶ Play";
+    }
+});
 // 31 Point Charter Data and Functionality
 const charterPoints = [
     {
